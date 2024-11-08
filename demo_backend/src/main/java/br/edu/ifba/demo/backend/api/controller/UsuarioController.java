@@ -47,6 +47,11 @@ public class UsuarioController {
         return null;
     }
 
+	@GetMapping("/index")
+	public String index() {
+		return "index";
+	}
+
 	  // Método para adicionar um novo usuário
 	@PostMapping
 	public ResponseEntity<UsuarioModel> addUsuario(@RequestBody UsuarioModel usuario) {
