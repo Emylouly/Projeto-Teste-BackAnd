@@ -1,5 +1,10 @@
 package br.edu.ifba.demo.backend.api.dto;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
+
+import br.edu.ifba.demo.backend.api.model.LivroModel;
+
 public class LivroDTO {
 
     private long id_livro;
@@ -15,14 +20,10 @@ public class LivroDTO {
     private LocalDateTime data_cadastro;
     private double preco;
 
-    public static LivroDTO converter(LivroModel livroModel) {
-        var livro = new UsuarioDTO();
-        livro.setId_usuario(livroModel.getId_usuario());
-        livro.setLogin(livroModel.getLogin());
-        livro.setSenha(livroModel.getSenha());
-        livro.setCreate_at(livroModel.getCreateAt());
-        livro.setLast_login(livroModel.getLastLogin());
-        return livro;
+    public static LivroDTO converter(LivroModel livroModel){
+        var livro = new LivroDTO();
+        livro.set
+
     }
 
 }

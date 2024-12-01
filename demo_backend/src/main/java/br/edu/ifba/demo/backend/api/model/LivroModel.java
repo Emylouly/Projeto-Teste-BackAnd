@@ -1,7 +1,6 @@
 package br.edu.ifba.demo.backend.api.model;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,45 +13,56 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "livro")
-
 public class LivroModel {
-
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_livro")
-    private long id_livro;
-
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_livro")
+    private Long id_livro;
+    
     @Column(name = "titulo", nullable = false)
-    private String titulo;
+	private String titulo;
 
-    @Column(name = "autor", nullable = false)
+	@Column(name = "autor", nullable = false)
     private String autor;
-
-    @Column(name = "editora")
+    
+    @Column(name = "editora", nullable = true)
     private String editora;
+    
+    @Column(name = "ano_publicacao", nullable = true)
+    private Integer ano_publicacao;
 
-    @Column(name = "ano_publicacao")
-    private Date ano_publicacao;
+    @Column(name = "genero", nullable = true)
+    private Integer genero;
 
-    @Column(name = "genero")
-    private String genero;
+    @Column(name = "isbn", nullable = true)
+    private Integer isbn;
 
-    @Column(name = "isbn")
-    private String isbn;
+    @Column(name = "num_paginas", nullable = true)
+    private Integer num_paginas;
 
-    @Column(name = "num_paginas")
-    private String num_paginas;
-
-    @Column(name = "sinopse")
+    @Column(name = "sinopse", nullable = true)
     private String sinopse;
 
-    @Column(name = "idioma")
+    @Column(name = "idioma", nullable = true)
     private String idioma;
 
-    @Column(name = "data_cadastro")
-    private LocalDateTime data_cadastro;
+    @Column(name = "data_cadastro", nullable = true)
+    private Timestamp data_cadastro;
 
-    @Column(name = "preco")
-    private double preco;
+    @Column(name = "preco", nullable = true)
+    private Double preco;
 
+    public LivroModel(){
+
+        super();
+
+    }
+
+    public LivroModel(long id_livro, String titulo){
+
+        super();
+
+    }
+    
 }
