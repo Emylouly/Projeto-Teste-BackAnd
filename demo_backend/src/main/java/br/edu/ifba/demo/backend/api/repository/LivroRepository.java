@@ -7,10 +7,11 @@ import br.edu.ifba.demo.backend.api.model.LivroModel;
 
 @Repository
 public interface LivroRepository
-
     extends JpaRepository<LivroModel, Long>
-    
+
 {
 
-
 }
+
+
+
