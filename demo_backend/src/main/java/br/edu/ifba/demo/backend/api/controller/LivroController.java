@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifba.demo.backend.api.model.LivroModel;
+import br.edu.ifba.demo.backend.api.model.UsuarioModel;
 import br.edu.ifba.demo.backend.api.repository.LivroRepository;
 
 @RestController
@@ -53,16 +55,42 @@ public class LivroController {
 
     }
 
-    //Metodo para adicionar um novo livro
-    @PostMapping
-    public ResponseEntity<LivroModel> addLivro(@RequestBody LivroModel livro){
+    // Método que retornar o usuario associado ao titulo passado como parametro
+	@GetMapping("/titulo/{titulo}")
+    public LivroModel findByTitulo(@PathVariable("titulo") String titulo) {
+        Optional<LivroModel> livro = livroRepository.findByTitulo(titulo);
+        if (livro.isPresent())
+            return livro.get();
         
-        System.out.println("addLivro: " + livro);
-        LivroModel savedLivro = livroRepository.save(livro);
-        return new ResponseEntity<LivroModel>(savedLivro, HttpStatus.CREATED);
-
+        return null;
     }
 
+    // Método que retornar o usuario associado ao isbn passado como parametro
+	@GetMapping("/isbn/{isbn}")
+    public LivroModel findByIsbn(@PathVariable("isbn") String isbn) {
+        Optional<LivroModel> livro = livroRepository.findByIsbn(isbn);
+        if (livro.isPresent())
+            return livro.get();
+        
+        return null;
+    }
 
+    // Método para deletar pelo ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable("id") Long id) {
+        if (livroRepository.existsById(id)) {
+            livroRepository.deleteById(id);
+            return ResponseEntity.noContent().build(); // Retorna 204 No Content
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // Retorna 404 Not Found
+        }
+    }
+
+    //Metodo para adicionar um novo livro
+    @PostMapping
+	  public ResponseEntity<LivroModel> addLivro(@RequestBody LivroModel livro) {
+		  LivroModel savedLivro = livroRepository.save(livro);
+		  return new ResponseEntity<>(savedLivro, HttpStatus.CREATED);
+	  }
 
 }
