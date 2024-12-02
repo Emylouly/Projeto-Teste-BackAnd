@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifba.demo.backend.api.model.LivroModel;
-import br.edu.ifba.demo.backend.api.model.UsuarioModel;
 import br.edu.ifba.demo.backend.api.repository.LivroRepository;
 
 @RestController
