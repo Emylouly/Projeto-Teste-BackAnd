@@ -46,7 +46,7 @@ public class LivroModel {
 
 
     @Column(name = "num_paginas", nullable = true)
-    private String num_paginas;
+    private Integer num_paginas;
 
 
     @Column(name = "sinopse", nullable = true)
@@ -70,7 +70,7 @@ public class LivroModel {
     }
 
     public LivroModel(long id_livro, String titulo, String autor, String editora, Date ano_publicacao, 
-    String genero, String isbn, String num_paginas, String sinopse, String idioma,
+    String genero, String isbn, Integer num_paginas, String sinopse, String idioma,
     LocalDateTime data_cadastro, double preco){
 
         super();

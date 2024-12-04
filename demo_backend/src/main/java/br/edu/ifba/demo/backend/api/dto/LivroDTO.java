@@ -19,7 +19,7 @@ public class LivroDTO {
     private Date ano_publicacao;
     private String genero;
     private String isbn;
-    private String num_paginas;
+    private Integer num_paginas;
     private String sinopse;
     private String idioma;
     private LocalDateTime data_cadastro;
@@ -67,7 +67,7 @@ public class LivroDTO {
 
     public LivroDTO
     (long id_livro, String titulo, String autor, String editora, Date ano_publicacao, 
-    String genero, String isbn, String num_paginas, String sinopse, String idioma,
+    String genero, String isbn, Integer num_paginas, String sinopse, String idioma,
     LocalDateTime data_cadastro, double preco){
 
         super();
@@ -157,12 +157,12 @@ public class LivroDTO {
     }
 
 
-    public String getNum_paginas() {
+    public Integer getNum_paginas() {
         return num_paginas;
     }
 
 
-    public void setNum_paginas(String num_paginas) {
+    public void setNum_paginas(Integer num_paginas) {
         this.num_paginas = num_paginas;
     }
 
