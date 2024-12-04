@@ -1,4 +1,4 @@
-package br.edu.ifba.demo.backend.config;
+package br.edu.ifba.demo.backend.api.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -9,10 +9,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") 
-                .allowedOrigins("http://localhost:8080") 
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") 
-                .allowedHeaders("*") 
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:8080")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
                 .allowCredentials(true);
     }
 }

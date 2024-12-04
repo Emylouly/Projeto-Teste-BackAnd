@@ -1,12 +1,11 @@
 package br.edu.ifba.demo.backend.api.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
 import br.edu.ifba.demo.backend.api.model.LivroModel;
-
-import java.util.Optional;
-import java.util.List;
-
 
 @Repository
 public interface LivroRepository extends JpaRepository<LivroModel, Long> {
