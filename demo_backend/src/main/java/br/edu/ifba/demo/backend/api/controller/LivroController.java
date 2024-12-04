@@ -45,7 +45,7 @@ public class LivroController {
     }
 
     // Método que retornar o usuario associado ao ID passado como parametro
-    @GetMapping("/{id}")
+    @GetMapping("/buscarporid/{id}")
     public LivroModel findById(@PathVariable ("id") Long id){
         Optional<LivroModel> livro = livroRepository.findById(id);
         if(livro.isPresent())
