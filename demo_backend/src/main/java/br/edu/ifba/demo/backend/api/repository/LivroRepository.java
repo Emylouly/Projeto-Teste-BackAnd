@@ -11,7 +11,8 @@ import java.util.List;
 @Repository
 public interface LivroRepository extends JpaRepository<LivroModel, Long> {
 
-    // Método para buscar um livro pelo título
+    //Metodo pra buscar por titulo 
     Optional<LivroModel> findByTitulo(String titulo);
+    //Metodo pra buscar por isbn 
     Optional<LivroModel> findByIsbn(String isbn);
 }

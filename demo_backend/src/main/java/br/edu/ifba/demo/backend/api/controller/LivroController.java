@@ -56,7 +56,7 @@ public class LivroController {
     }
 
     // Método que retornar o usuario associado ao titulo passado como parametro
-	@GetMapping("/titulo/{titulo}")
+	@GetMapping("/buscarportitulo/{titulo}")
     public LivroModel findByTitulo(@PathVariable("titulo") String titulo) {
         Optional<LivroModel> livro = livroRepository.findByTitulo(titulo);
         if (livro.isPresent())
@@ -66,7 +66,7 @@ public class LivroController {
     }
 
     // Método que retornar o usuario associado ao isbn passado como parametro
-	@GetMapping("/isbn/{isbn}")
+	@GetMapping("/buscarporisbn/{isbn}")
     public LivroModel findByIsbn(@PathVariable("isbn") String isbn) {
         Optional<LivroModel> livro = livroRepository.findByIsbn(isbn);
         if (livro.isPresent())
