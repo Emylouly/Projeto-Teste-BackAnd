@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifba.demo.backend.api.model.LivroModel;
 
 @Repository
-public interface LivroRepository extends JpaRepository<LivroModel, Long> {
+public interface LivroRepository 
+extends JpaRepository<LivroModel, Long> {
 
     //Metodo pra buscar por titulo 
     Optional<LivroModel> findByTitulo(String titulo);

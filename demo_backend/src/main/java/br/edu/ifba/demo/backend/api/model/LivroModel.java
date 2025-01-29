@@ -26,7 +26,6 @@ public class LivroModel {
     @Column(name = "titulo", nullable = false)
     private String titulo;
 
-
     @Column(name = "autor", nullable = false)
     private String autor;
    
